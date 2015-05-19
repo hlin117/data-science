@@ -25,6 +25,9 @@ in the project's root folder.
 
 # Contributing to this project
 Some ground rules
+
 1. Use 4 spaced indents, no tabs.
-2. Always make sure your code works in the virtual environment.
+2. Always make sure your code works in the virtual environment. This means
+putting `#!/usr/bin/env python` on every executable python script.
 3. Try to keep lines within 80 characters (PEP 8 says 79)
+4. Do not commit data sets. Create simple fetching scripts like I do.

@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #title          :breast.py
-#description    :A testing script for Guozhu Dong's CPXR algorithm
+#description    :A general classification task
 #author         :Henry Lin
 #version        :0.0.1
 #python_version :2.7.6
@@ -10,7 +10,7 @@ from __future__ import division
 import pandas as pd
 import numpy as np
 from sklearn.cross_validation import train_test_split, KFold
-from sklearn.metrics import accuracy_score, roc_curve, auc
+from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC, LinearSVC
@@ -30,7 +30,6 @@ def main():
     le = LabelEncoder()
     X = dataset.ix[:, range(1, 10)].values
     Y = le.fit_transform(dataset.ix[:, 10].values)
-
     conv_X = pd.get_dummies(dataset.ix[:, range(1, 10)])
 
     # These are "Class objects". For each Class, find the AUC through

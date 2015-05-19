@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #title          :mushroom.py
-#description    :A testing script for Guozhu Dong's CPXR algorithm
+#description    :A general classification task
 #author         :Henry Lin
 #version        :0.0.1
 #python_version :2.7.6
