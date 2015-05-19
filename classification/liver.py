@@ -27,8 +27,6 @@ def main():
             "gammagt", "drinks", "disorder"]
     dataset = pd.read_csv("data/liver.data", names=colnames, index_col=None)
 
-    # NOTE: Often fails if you include the first, fourth, or 5th column
-    # I'm probably losing accuracy if I don't include some features...
     le = LabelEncoder()
     X = dataset.ix[:, [0, 1, 2, 3, 4, 5]].values
     Y = le.fit_transform(dataset.ix[:, 6].values)

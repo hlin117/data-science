@@ -22,8 +22,6 @@ numFolds = 10
 
 def main():
 
-    # The mushroom data was obtained through the UCI website. The task
-    # is to classify whether a mushroom is edible or not.
     dataset = pd.read_csv("data/australian.data", header=None, sep=" ")
     X = dataset.drop(14, axis=1)
     Y = dataset[14]
