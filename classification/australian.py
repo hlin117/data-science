@@ -45,7 +45,7 @@ def main():
             reg.fit(train_X, train_Y)
             predictions = reg.predict(test_X)
             fpr, tpr, _ = roc_curve(test_Y, predictions)
-            total += metrics.auc(fpr, tpr)
+            total += auc(fpr, tpr)
         accuracy = total / numFolds
         print "AUC of {0}: {1}".format(Model.__name__, accuracy)
 

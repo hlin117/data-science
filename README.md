@@ -13,16 +13,14 @@ Some popular tasks that are currently missing are:
 This repository primarily fetches from the UCI machine learning repository.
 Please `cd data` to see the fetching scripts, and the URLs for each address.
 
-# The virtual environment
-The virtual environment should give you access to the popular scientific
-computing library to run the python scripts in this project. To activate the
-computing libraries, just type
+# Installing the required packages
+I put everything into a requirements file. Just do
 
 ```
-source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-in the project's root folder.
+and let the magic of pip take over.
 
 # Contributing to this project
 I'd love it if people contributed to this repository. But here are some ground
