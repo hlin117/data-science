@@ -13,7 +13,7 @@ from sklearn.cross_validation import train_test_split, KFold
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC, LinearSVC
+from sklearn.svm import SVC
 from time import time
 from sklearn.ensemble import RandomForestClassifier
 
@@ -34,8 +34,8 @@ def main():
 
     # These are "Class objects". For each Class, find the AUC through
     # 10 fold cross validation.
-    Models = [LogisticRegression, RandomForestClassifier, SVC, LinearSVC]
-    params = [{}, {}, {}, {}]
+    Models = [LogisticRegression, RandomForestClassifier, SVC]
+    params = [{}, {}, {"probability": True}]
     for Model, params in zip(Models, params):
         total = 0
         kf = KFold(len(X), numFolds, shuffle=True, random_state=SEED)
@@ -48,7 +48,7 @@ def main():
             # Train the model, and evaluate it
             reg = Model(**params)
             reg.fit(train_X, train_Y)
-            predictions = reg.predict(test_X)
+            predictions = reg.predict_proba(test_X)[:, 1]
             fpr, tpr, _ = roc_curve(test_Y, predictions)
             total += auc(fpr, tpr)
         accuracy = total / numFolds
