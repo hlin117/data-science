@@ -16,8 +16,10 @@ in many papers that introduce machine learning models?
 * What is the difference between python `pandas`, `numpy`, and `scikit-learn`?
 * How are the models in each of the scripts different from each other?
 * What is k-fold cross validation?
-* What is the difference between evaluating a model using AUC and an accuracy
-score?
+* The iris dataset uses `accuracy_score` to evaluate its models for
+classification. What is the difference between evaluating a model using AUC
+and an accuracy score? Why can't we use AUC to evaluate the models trained
+in the iris dataset?
 
 ## Missing bits and pieces
 
