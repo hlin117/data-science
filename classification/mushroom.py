@@ -22,9 +22,9 @@ np.random.seed(SEED)
 numFolds = 10
 
 def main():
+    """The mushroom data was obtained through the UCI website. The task
+    is to classify whether a mushroom is edible or not."""
 
-    # The mushroom data was obtained through the UCI website. The task
-    # is to classify whether a mushroom is edible or not.
     columns = ["edible", "cap-shape", "cap-surface", "cap-color", "bruises?",
             "odor", "gill-attachment", "gill-spacing", "gill-size", "gill-color",
             "stalk-shape", "stalk-root", "stalk-surface-above-ring",
@@ -39,6 +39,7 @@ def main():
     le = LabelEncoder()
     X = dataset.drop("edible", axis=1)
     Y = le.fit_transform(dataset["edible"].values)
+    kf = KFold(len(X), numFolds, shuffle=True)
 
     conv_X = pd.get_dummies(dataset[columns[1:]])
 
@@ -48,7 +49,6 @@ def main():
     params = [{}, {}, {"probability": True}]
     for Model, params in zip(Models, params):
         total = 0
-        kf = KFold(len(X), numFolds, shuffle=True, random_state=SEED)
         for train_indices, test_indices in kf:
 
             # Get the dataset; this is the way to access values in a pandas DataFrame

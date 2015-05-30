@@ -26,6 +26,7 @@ def main():
     X = dataset.drop(14, axis=1)
     Y = dataset[14]
     conv_X = pd.get_dummies(X, columns=[0, 3, 4, 5, 7, 8, 10, 11])
+    kf = KFold(len(X), numFolds, shuffle=True)
 
     # These are "Class objects". For each Class, find the AUC through
     # 10 fold cross validation.
@@ -33,7 +34,6 @@ def main():
     params = [{}, {}, {"probability": True}]
     for Model, params in zip(Models, params):
         total = 0
-        kf = KFold(len(X), numFolds, shuffle=True, random_state=SEED)
         for train_indices, test_indices in kf:
 
             # Get the dataset; this is the way to access values in a pandas DataFrame

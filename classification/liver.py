@@ -30,6 +30,7 @@ def main():
     le = LabelEncoder()
     X = dataset.ix[:, [0, 1, 2, 3, 4, 5]].values
     Y = le.fit_transform(dataset.ix[:, 6].values)
+    kf = KFold(len(X), numFolds, shuffle=True)
     conv_X = pd.get_dummies(dataset.ix[:, [0, 1, 2, 3, 4, 5]])
 
     # These are "Class objects". For each Class, find the AUC through
@@ -38,7 +39,6 @@ def main():
     params = [{}, {}, {"probability": True}]
     for Model, params in zip(Models, params):
         total = 0
-        kf = KFold(len(X), numFolds, shuffle=True, random_state=SEED)
         for train_indices, test_indices in kf:
 
             # Get the dataset; this is the way to access values in a pandas DataFrame
