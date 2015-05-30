@@ -34,8 +34,6 @@ def main():
             ]
     dataset = pd.read_csv("data/mushroom.data", names=columns, index_col=None)
 
-    # NOTE: Often fails if you include the first, fourth, or 5th column
-    # I'm probably losing accuracy if I don't include some features...
     le = LabelEncoder()
     X = dataset.drop("edible", axis=1)
     Y = le.fit_transform(dataset["edible"].values)
@@ -47,7 +45,7 @@ def main():
     # 10 fold cross validation.
     Models = [LogisticRegression, RandomForestClassifier, SVC]
     params = [{}, {}, {"probability": True}]
-    for Model, params in zip(Models, params):
+    for Model, param in zip(Models, params):
         total = 0
         for train_indices, test_indices in kf:
 
@@ -56,9 +54,9 @@ def main():
             test_X = conv_X.ix[test_indices, :]; test_Y = Y[test_indices]
 
             # Train the model, and evaluate it
-            reg = Model(**params)
+            reg = Model(**param)
             reg.fit(train_X, train_Y)
-            predictions = reg.predict(test_X)
+            predictions = reg.predict_proba(test_X)[:, 1]
             fpr, tpr, _ = roc_curve(test_Y, predictions)
             total += auc(fpr, tpr)
         accuracy = total / numFolds
