@@ -7,8 +7,6 @@ if [ -f "abalone.data" ]; then
     rm "abalone.data"
 fi
 wget -q http://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data
-echo "Preprocessing abalone data"
-python abalone.py
 
 # CPU data
 echo "Downloading CPU data"
