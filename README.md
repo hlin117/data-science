@@ -26,8 +26,7 @@ in the iris dataset?
 You could help contribute to this project! See below for contribution rules.
 Some popular tasks that are currently missing are:
 
-- Regression (I have these ready, they're just not added yet)
-- Multitask Classification
+- Multitask Classification (The iris dataset is the only multi-class problem)
 - Clustering (It's hard to get ground truth data sets)
 - Text mining (Again, hard to obtain ground truth)
 - Computer Vision (Not my area of specialty)
