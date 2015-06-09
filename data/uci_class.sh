@@ -14,9 +14,9 @@ if [ -f "breast.data" ]; then
 fi
 wget -q http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data
 mv breast-cancer-wisconsin.data breast.data
-sed -i.bak "s/?/0/g" breast.data
+sed -i.bak "/?/d" breast.data
 rm breast.data.bak
-echo "NOTE: Preprocessed the heart data by replacing the '?' with '0'"
+echo "NOTE: Preprocessed the breast data by deleting lines with '?'"
 
 echo "Downloading liver disorder data"
 if [ -f "liver.data" ]; then
@@ -54,5 +54,3 @@ if [ -f "australian.data" ]; then
 fi
 wget -q https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/australian/australian.dat
 mv australian.dat australian.data
-# lymph: https://archive.ics.uci.edu/ml/datasets/Lymphography
-# heart disease (cleave): https://archive.ics.uci.edu/ml/datasets/Heart+Disease
