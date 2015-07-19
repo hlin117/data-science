@@ -11,7 +11,6 @@ import pandas as pd
 import numpy as np
 from sklearn.cross_validation import train_test_split, KFold
 from sklearn.metrics import roc_curve, auc
-from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
