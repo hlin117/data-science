@@ -40,7 +40,7 @@ ctest_X = scaler.fit_transform(test_X.toarray())
 
 for Model in Models:
     clf = Model()
-    accuracy = fit_predict(clf, ctrain_X, train_y, ctest_X, test_y)
+    accuracy = fit_predict(clf, ctrain_X[:, 1:], train_y, ctest_X, test_y)
     print "New accuracy of {0}: {1}".format(Model.__name__, accuracy)
 
 # You could try different scaling schemes as well
