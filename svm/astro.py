@@ -7,7 +7,6 @@
 #================================================================================
 
 from __future__ import division
-import pandas as pd
 import numpy as np
 from sklearn.datasets import load_svmlight_file
 from sklearn.metrics import accuracy_score
